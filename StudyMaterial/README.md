@@ -8,8 +8,10 @@
 4. [Merging of branches](#merging-of-branches)
 5. [Tags and Commits](#tags-and-commits)
 6. [Stash command and Hooks](#stash-command-and-hooks)
-7. [Agiles Methodologies and Scrum](#agiles-methodologies-and-scrum)
-8. [Bibliography](#bibliography)
+7. [Git branching strategies and flows](#git-branching-strategies-and-flows)
+8. [Git Merge vs Rebase vs Squash](#git-merge-vs-rebase-vs-squash)
+9. [Agiles Methodologies and Scrum](#agiles-methodologies-and-scrum)
+10. [Bibliography](#bibliography)
 
 <!--What is git?-->
 
@@ -158,9 +160,31 @@ git stash pop
 
 ## Git branching strategies and flows.
 
+<em> What are the branching strategies in git? </em>
+
+Refer to the different approaches and workflows that teams and developers can use when working with Git repositories and managing branches.
+
+The most commonly used Git branching strategies:
+
++ Feature branches: In this strategy, every time you work on a new feature or task, you create a separate branch in Git. This branch is like a copy of your project where you can make changes without affecting the main version. Once you finish working on the feature, you can merge it back to the main branch.
+
++ Gitflow: It uses two main branches called "master" and "develop". The "develop" branch is where the main development happens. When you work on a new feature, you create a feature branch from "develop". Once the feature is ready, you merge it back to develop. When everything in "develop" is tested and ready to be released, you create a "release" branch to do the last tests and bug fixes before merging it back to "master".
+
++ Trunk-based development: This strategy is based on maintaining a single main branch, called "master", which is always ready to be released. Instead of working on separate branches for a long time, changes are made directly on the master branch. This promotes continuous integration and requires a focus on automated testing and constant stability.
+
++ Forking flow: This strategy is commonly used in open source projects. Instead of working directly in the main repository, each developer makes an independent copy of the project called a "fork". Then, they create branches in their own fork to work on features or bug fixes. When they are done, they request to merge their changes to the main repository through a pull request.
+
 <!--Git rebase and squash | merge vs rebase.-->
 
-## Git rebase and squash | merge vs rebase.
+## Git Merge vs Rebase vs Squash
+
+Choosing the right operation depends on your needs and preferences, as well as the workflow and structure of your project.
+
++ Git Merge: The merge operation in Git combines changes from two different branches. When merging one branch into another, Git creates a new commit that contains all the changes from both branches. The merge commit has two parents, one from each merged branch. This operation preserves the history of each branch and clearly shows where and how the merges were performed.
+
++ Git Rebase: Rebase is an operation that moves or reposts commits from one branch to another. Instead of merging branches, rebasing takes the changes from one branch and applies them on top of another branch, as if the changes had been made directly on that branch. This rewrites the commit history and gives the appearance that the changes were made sequentially on a single branch. Rebasing is useful for maintaining a clean, linear commit history, especially when working with feature branches or updating one branch with the most recent changes from another.
+
++ Git Squash: Squash is a technique that combines several commits into one. Instead of keeping all the individual commits, Git takes the changes from selected commits and joins them into a new commit. This is useful when you want to reduce the number of commits and have a more consistent and easier to understand change history. Squashing is especially useful before merging a feature branch into the main branch, to avoid a messy commit history.
 
 <!--Agiles Methodologies | Scrum-->
 
@@ -188,3 +212,5 @@ Scrum encourages transparency, inspection and continuous adaptation. It focuses 
 * [Get started with GitHub.](https://docs.github.com/en/get-started/quickstart/hello-world)
 * [About Git](https://docs.github.com/en/get-started/using-git/about-git)
 * [Scrum](https://www.atlassian.com/agile/scrum)
+* [Git Merge and Git Rebase](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
+* [Git Squash](https://www.geeksforgeeks.org/git-squash/)
