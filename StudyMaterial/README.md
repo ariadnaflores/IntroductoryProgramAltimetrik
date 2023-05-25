@@ -8,7 +8,7 @@
 4. [Merging of branches](#merging-of-branches)
 5. [Tags and Commits](#tags-and-commits)
 6. [Stash command and Hooks](#stash-command-and-hooks)
-7. [Agiles Methodologies | Scrum](#agiles-methodologies-scrum)
+7. [Agiles Methodologies | Scrum](#agiles-methodologies-|-scrum)
 8. [Bibliography](#bibliography)
 
 <!--What is git?-->
@@ -184,7 +184,7 @@ Scrum encourages transparency, inspection and continuous adaptation. It focuses 
 
 ## Bibliography
 
-[Git Pages](https://git-scm.com/)
-[Get started with GitHub.](https://docs.github.com/en/get-started/quickstart/hello-world)
-[About Git](https://docs.github.com/en/get-started/using-git/about-git)
-[Scrum](https://www.atlassian.com/agile/scrum)
+* [Git Pages](https://git-scm.com/)
+* [Get started with GitHub.](https://docs.github.com/en/get-started/quickstart/hello-world)
+* [About Git](https://docs.github.com/en/get-started/using-git/about-git)
+* [Scrum](https://www.atlassian.com/agile/scrum)
