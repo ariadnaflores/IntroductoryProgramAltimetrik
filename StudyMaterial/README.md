@@ -8,7 +8,7 @@
 4. [Merging of branches](#merging-of-branches)
 5. [Tags and Commits](#tags-and-commits)
 6. [Stash command and Hooks](#stash-command-and-hooks)
-7. [Agiles Methodologies | Scrum](#agiles-methodologies-|-scrum)
+7. [Agiles Methodologies and Scrum](#agiles-methodologies-and-scrum)
 8. [Bibliography](#bibliography)
 
 <!--What is git?-->
@@ -164,7 +164,7 @@ git stash pop
 
 <!--Agiles Methodologies | Scrum-->
 
-## Agiles Methodologies | Scrum
+## Agiles Methodologies and Scrum
 
 Agile methodologies are project management approaches that focus on flexibility, adaptability and collaboration. These methodologies are based on principles and values that value early and continuous delivery of functional software, effective communication, customer collaboration, and responsiveness to change.
 
