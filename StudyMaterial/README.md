@@ -11,7 +11,9 @@
 7. [Git branching strategies and flows](#git-branching-strategies-and-flows)
 8. [Git Merge vs Rebase vs Squash](#git-merge-vs-rebase-vs-squash)
 9. [Agiles Methodologies and Scrum](#agiles-methodologies-and-scrum)
-10. [Bibliography](#bibliography)
+10. [JavaScript](#javascript)
+11. [Syntax and Basic Constructs](#syntax-and-basic-constructs)
+12. [Bibliography](#bibliography)
 
 <!--What is git?-->
 
@@ -204,6 +206,120 @@ Scrum is one of the most popular and widely used agile methodologies. It focuses
 
 Scrum encourages transparency, inspection and continuous adaptation. It focuses on delivering value to the customer quickly and consistently, and allows for the incorporation of changes and feedback throughout the development process.
 
+<!--JavaScript-->
+
+## JavaScript
+
+JavaScript is a high-level, interpreted programming language that allows you to add interactivity and dynamic behavior to web pages. Here are some of the basic syntax and constructs used in JavaScript:
+
+## Syntax and Basic Constructs
+
+1. Variables are containers for storing data. In JavaScript, variables can be declared using `var`, `let`, or `const`. `var` was used prior to ES6, while `let` and `const` were introduced in ES6 and have block scope.
+
+Example:
+```
+let name = "Ariadna";
+const age = 22;
+```
+
+2. Data Types: JavaScript is a dynamically typed programming language, which means you don't need to declare the data type of a variable. Basic data types include:
+
+- `string`: `"Hello"`, `'World'`
+- `number`: `42`, `3.14`
+- `boolean`: `true`, `false`
+- `null`: `null`
+- `undefined`: `undefined`
+- `object`: `{}` or `new Object()`
+- `array`: `[]` or `new Array()`
+
+Example:
+```
+let name = "Ariadna";
+let age = 22;
+let isAdult = true;
+let numberList = [1, 2, 3, 4, 5];
+```
+
+3. Operators: JavaScript has a variety of operators for performing calculations and comparisons. Some common examples include:
+
+- Arithmetic Operators: `+` (addition), `-` (subtraction), `*` (multiplication), `/` (division), `%` (modulo)
+- Assignment Operators: `=` (assignment), `+=` (addition assignment), `-=` (subtraction assignment), `*=` (multiplication assignment), `/=` (division assignment)
+- Comparison Operators: `==` (equality), `===` (strict equality), `!=` (inequality), `!==` (strict inequality), `>` (greater than), `<` (less than), `>=` (greater than or equal to), `<=` (less than or equal to)
+- Logical Operators: `&&` (logical AND), `||` (logical OR), `!` (logical NOT)
+
+Example:
+```
+let x = 5;
+let y = 10;
+let sum = x + y;
+let isGreater = x > y;
+```
+
+4. Conditions: Are used to make decisions and control the flow of your program. 
+
+- `if` statement: executes a block of code if a condition is true.
+- `else if` statement: specifies a new condition if the previous condition is false.
+- `else` statement: specifies a block of code to be executed if the condition is false.
+
+Example:
+```
+let hour = 12;
+
+if (hour < 12) {
+    console.log("Good morning");
+} else if (hour < 18) {
+    console.log("Good afternoon");
+} else {
+    console.log("Good evening");
+}
+```
+
+5. Functions: 
+   - Declaring a function using the `function` keyword.
+   - Parameters: placeholders for values passed into a function.
+   - Return statement: specifies the value to be returned from the function.
+
+Example:
+```
+function add(x, y) {
+    return x + y;
+}
+
+//the add function is called with the values 9 and 5 as arguments
+
+let result = add(9, 5);
+console.log(result); // Output: 14
+```
+
+6. Loops:
+   - `for` loop: iterates a block of code a fixed number of times.
+   - `while` loop: iterates a block of code while a condition is true.
+   - `do...while` loop: similar to `while` loop, but the block of code is executed at least once.
+
+```
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+
+let i = 0;
+while (i < 5) {
+    console.log(i);
+    i++;
+}
+```
+
+7. Arrays:
+   - Creating an array using square brackets `[]`.
+   - Accessing elements using index (starting from 0).
+   - Array methods: `push()`, `pop()`, `shift()`, `unshift()`, `slice()`, `splice()`, etc.
+
+```
+let fruits = ["apple", "banana", "orange"];
+console.log(fruits[0]); // Output: "apple"
+fruits.push("mango"); // Add an element to the end
+fruits.pop(); // Remove the last element
+```
+
 <!--Bibliography-->
 
 ## Bibliography
@@ -211,6 +327,7 @@ Scrum encourages transparency, inspection and continuous adaptation. It focuses 
 * [Git Pages](https://git-scm.com/)
 * [Get started with GitHub.](https://docs.github.com/en/get-started/quickstart/hello-world)
 * [About Git](https://docs.github.com/en/get-started/using-git/about-git)
-* [Scrum](https://www.atlassian.com/agile/scrum)
 * [Git Merge and Git Rebase](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
 * [Git Squash](https://www.geeksforgeeks.org/git-squash/)
+* [JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript)
+* [Scrum](https://www.atlassian.com/agile/scrum)
