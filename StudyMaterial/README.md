@@ -13,11 +13,12 @@
 9. [Agiles Methodologies and Scrum](#agiles-methodologies-and-scrum)
 10. [JavaScript](#javascript)
 11. [Syntax and Basic Constructs](#syntax-and-basic-constructs)
-12. [Meta-tags](#meta-tags)
-13. [Input types](#input-types)
-14. [Difference between HTML and XHTML](#difference-between-html-and-xhtml)
-15. [Data-attributes](#data-attributes)
-16. [Bibliography](#bibliography)
+12. [HTML](#html)
+13. [Meta-tags](#meta-tags)
+14. [Input types](#input-types)
+15. [Difference between HTML and XHTML](#difference-between-html-and-xhtml)
+16. [Data-attributes](#data-attributes)
+17. [Bibliography](#bibliography)
 
 <!--What is git?-->
 
