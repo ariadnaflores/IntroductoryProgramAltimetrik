@@ -13,7 +13,11 @@
 9. [Agiles Methodologies and Scrum](#agiles-methodologies-and-scrum)
 10. [JavaScript](#javascript)
 11. [Syntax and Basic Constructs](#syntax-and-basic-constructs)
-12. [Bibliography](#bibliography)
+12. [Meta-tags](#meta-tags)
+13. [Input types](#input-types)
+14. [Difference between HTML and XHTML](#difference-between-html-and-xhtml)
+15. [Data-attributes](#data-attributes)
+16. [Bibliography](#bibliography)
 
 <!--What is git?-->
 
@@ -320,6 +324,188 @@ fruits.push("mango"); // Add an element to the end
 fruits.pop(); // Remove the last element
 ```
 
+## HTML
+
+<em> What is html? </em>
+
+HTML (HyperText Markup Language) is the language used to create web pages. Imagine you are building a house, HTML would be the language you use to define the structure and content of the house.
+
+Instead of bricks and mortar, in HTML you use tags and elements. Tags are like instructions that tell the web browser how to display your page. For example, the `<h1>` tag is used to create a large heading, while the `<p>` tag is used to create a paragraph.
+
+Each tag has an opening tag and a closing tag. The opening tag looks like this: `<tag>` and the closing tag looks like this: `</tag>`. Everything between the opening and closing tags is considered content and will be displayed on the web page.
+
+In addition to the basic content, you can also add links, images, lists, and many other elements to your web page using special tags. For example, the `<a>` tag is used to create a link, the `<img>` tag is used to insert an image, and the `<ul>` tag creates an unordered list.
+
+## Meta-tags
+
+Meta-tags are special tags that are used in the HTML code of a web page to provide additional information about the content of that page. Imagine you are preparing a dish of food, the meta-tags would be like the ingredients and instructions you give to the chef.
+
+These tags are placed in the head section of the HTML code and are not visible on the web page, but provide important information for search engines and other online services.
+
+Meta Description: The meta description provides a brief, relevant summary of the page content. It is used by search engines to display a description in search results. In the example, the meta description indicates that the page contains delicious recipes to prepare at home.
+
+```
+<meta name="description" content="Discover delicious recipes to prepare at home and surprise your family and friends.">
+```
+
+Meta Title: The meta title defines the title of the page, which is displayed in the title bar of the browser and in search results. In this case, the page title is "Home Cooking Recipes."
+
+```
+<title>Home cooking recipes</title>.
+```
+
+Meta Keywords: Although nowadays keywords have less weight in search engines, they can still be used to indicate keywords related to the content of the page. In this example, some relevant keywords are mentioned, such as ``recipes'', ``home cooking'', ``dishes'' and ``food''.
+
+```
+<meta name="keywords" content="recipes, home cooking, dishes, food">
+```
+
+Meta Author:
+The meta author allows you to indicate the name of the author or creator of the page. In this case, the author of the page is "John Smith".
+
+```
+<meta name="author" content="John Smith">
+```
+
+Meta Robots:
+The meta robots tell search engines what to do with the page. In this example, they are told that the page should be indexed (included in search results) and that they should follow the links it contains.
+
+```
+<meta name="robots" content="index, follow">
+```
+
+Charset:
+The charset defines the character encoding used on the page. UTF-8 is a common encoding that supports a wide range of characters, including international characters. It is important to set the charset correctly to ensure that characters are displayed correctly on the page.
+
+```
+<meta charset="UTF-8">
+```
+
+## Input types
+
+Input types in HTML are attributes used to define the type of data expected to be entered into a form input field. They are like instructions to the browser on what type of information the user should expect when interacting with the form.
+
+Text: This input type is used to enter simple text, such as a name or address. The user can type any text in the field.
+
+```
+<input type="text" name="name">
+```
+
+Number: This input type is used to enter numbers. The browser displays a numeric keypad on mobile devices and can add restrictions to accept only numbers.
+
+```
+<input type="number" name="age">
+```
+
+3. Email: This input type is used to enter a valid email address. The browser can perform some basic checks, such as making sure an "@" symbol is included.
+
+```
+<input type="email" name="mail">
+```
+
+4. Password: This input type is used to enter passwords. The entered text is displayed as asterisks or other hidden characters to protect the user's privacy.
+
+```
+<input type="password" name="password">
+```
+
+5. Checkbox: This input type allows you to select one or more options from a list of choices. It is useful for "yes" or "no" questions or for accepting terms and conditions. The value is sent if the box is checked.
+
+```
+<input type="checkbox" name="accept" value="1">
+```
+
+6. Radius: This input type allows you to select a single option from a list of options. Only one option can be selected from the group.
+
+```
+<input type="radio" name="gender" value="male"> Male
+<input type="radio" name="sex" value="female"> Female
+```
+
+7. File: This type of entry allows a file to be selected for uploading from the user's device. It is useful to allow users to upload images, documents, etc.
+
+```
+<input type="file" name="file">
+```
+
+8. Date: This input type allows you to select a date using a drop-down calendar. The date format may vary depending on the browser.
+
+```
+<input type="date" name="date">
+```
+
+9. Time: This input type allows you to select a specific time using a digital clock. The time format may vary depending on the browser.
+
+```
+<input type="time" name="time">
+```
+
+10. URL: This input type is used to enter a valid URL, such as "https://www.ejemplo.com". The browser can perform some basic checks to make sure the URL is correctly formed.
+
+```
+<input type="url" name="sitio-web">
+```
+
+11. Range: This input type displays a slider bar that allows you to select a value within a specific range. In the example, the range is from 0 to 100, with increments of 1.
+
+```
+<input type="range" name="value" min="0" max="100" step="1">
+```
+
+12. Select: This input type creates a drop-down menu that allows you to select an option from a list. Cada opción se define dentro de las etiquetas `<option>`. El valor seleccionado se enviará cuando se envíe el formulario.
+
+```
+<select name="options">
+  <option value="option1">Option 1</option>
+  <option value="option2">Option 2</option>
+  <option value="option3">Option 3</option>
+</select>
+```
+
+## Difference between HTML and XHTML
+
+HTML (HyperText Markup Language) and XHTML (Extensible HyperText Markup Language) are two different versions of the language used to create web pages. The main difference between HTML and XHTML is the way in which documents are written and interpreted.
+
+HTML is more flexible and allows certain irregularities in the writing of the code, such as unclosed tags or malformed elements. This means that there can be some variations in how HTML code is written and still function correctly.
+
+On the other hand, XHTML follows a stricter syntax and is based on XML. This means that all tags must be properly closed and nested, and documents must be well-formed. In XHTML, stricter rules must be followed in writing the code and any error can cause the document to not function correctly.
+
+Syntax: The main difference between HTML and XHTML lies in their syntax. HTML has a more flexible syntax and allows certain irregularities, such as unclosed tags or malformed elements. XHTML, on the other hand, follows a stricter syntax and is based on XML, which means that all tags must be properly closed and nested, and documents must be well-formed.
+
+Document structure: In HTML, it is common to find more relaxed document structures, where certain optional elements and attributes are omitted. En XHTML, se requiere una estructura más rigurosa y bien definida, incluyendo la declaración de tipo de documento (doctype) y el uso de etiquetas de cierre para todos los elementos.
+
+XML compatibility: XHTML is a version of HTML that complies with XML rules, which means that it can also be interpreted by XML parsers. This facilitates the interoperability and processing of XHTML documents on different platforms and tools that support XML.
+
+Typing rules: XHTML requires the use of strict typing rules, such as the use of lower case for tags and attributes, the use of double quotes for attribute values and the specification of all attributes with values. HTML is more permissive in terms of these typing rules.
+
+## Data-attributes
+
+Data attributes in HTML are custom attributes that begin with the word "data-". They allow additional information to be stored in HTML elements for use in JavaScript or CSS.
+
+Suppose you have a list element `<li>` and you want to store an additional value associated with that element. You can use a data attribute to do it. For example:
+
+```
+<ul>
+  <li data-id="1">Element 1</li>
+  <li data-id="2">Element 2</li>
+  <li data-id="3">Element 3</li>
+</ul>
+```
+
+In this example, data attributes have been added to each list element (`<li>`) using the prefix "data-" followed by a meaningful name, in this case "id". The values ​​associated with those attributes can be customized to your needs.
+
+Then, in your JavaScript code, you can access these data attributes to perform some action. For example, you can get the value of the "id" data attribute of a specific element:
+
+```
+var element = document.querySelector('li[data-id="2"]');
+var id = element.dataset.id;
+console. log(id); // Result: 2
+```
+
+In this case, we have selected the list item with the data attribute "data-id" equal to "2" using `document.querySelector()`. Next, we have used the `dataset` property to access the value of the "id" data attribute and store it in the `id` variable.
+
+Data attributes allow you to store additional information in HTML elements in a custom way, giving you the flexibility to work with them in your JavaScript or CSS code. You can use them to store identifiers, specific settings or any other type of information relevant to your needs.
+
 <!--Bibliography-->
 
 ## Bibliography
@@ -331,3 +517,5 @@ fruits.pop(); // Remove the last element
 * [Git Squash](https://www.geeksforgeeks.org/git-squash/)
 * [JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript)
 * [Scrum](https://www.atlassian.com/agile/scrum)
+* [HTML](https://developer.mozilla.org/es/docs/Web/HTML)
+* [Data-attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)
