@@ -18,7 +18,18 @@
 14. [Input types](#input-types)
 15. [Difference between HTML and XHTML](#difference-between-html-and-xhtml)
 16. [Data-attributes](#data-attributes)
-17. [Bibliography](#bibliography)
+17. [Semantic HTML](#semantic-html)
+18. [Accessibility](#ccessibility)
+19. [SEO](#seo)
+20. [DOM](#dom)
+21. [CSS](#css)
+22. [Specificity](#specificity)
+23. [Box Model](#box-model)
+24. [Hoisting](#hoisting)
+25. [Scope](#scope)
+26. [Strict](#strict)
+27. [Media Queries](#media-queries)
+28. [Bibliography](#bibliography)
 
 <!--What is git?-->
 
@@ -507,6 +518,353 @@ In this case, we have selected the list item with the data attribute "data-id" e
 
 Data attributes allow you to store additional information in HTML elements in a custom way, giving you the flexibility to work with them in your JavaScript or CSS code. You can use them to store identifiers, specific settings or any other type of information relevant to your needs.
 
+<!-- Accessibility | Semantic HTML-->
+## Semantic HTML
+
+Semantic in HTML refers to using appropriate elements and attributes to convey the meaning and structure of the content on a web page. By applying proper semantics, we achieve better understanding of the content for both search engines and users, and improve accessibility and code maintenance. 
+
+**Basic HTML Structure with Semantic Best Practices:**
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page Title</title>
+</head>
+<body>
+    <header>
+        <h1>Website Name</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section>
+            <h2>Section 1</h2>
+            <p>Content of section 1.</p>
+        </section>
+        
+        <section>
+            <h2>Section 2</h2>
+            <p>Content of section 2.</p>
+        </section>
+    </main>
+    
+    <footer>
+        <p>Copyright &copy; 2023. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+```
+
+1. `<!DOCTYPE html>`: This declaration defines that you are using HTML5, the latest version of the language.
+
+2. `<html lang="en">`: The `lang` attribute specifies the primary language of the page. This helps search engines and assistive technologies understand the content in different languages.
+
+3. `<head>`: Here, you include metadata and links to external files such as stylesheets and scripts.
+
+4. `<meta charset="UTF-8">`: This meta tag specifies the character encoding of the page. UTF-8 is a widely compatible encoding that supports characters from different languages.
+
+5. `<title>`: The page title displayed in the browser tab and is important for SEO and usability.
+
+6. `<header>`: The `<header>` element is used to group the header or top section of the website, which may include the logo, site title, and navigation.
+
+7. `<nav>`: The `<nav>` element is used to mark a main navigation section on the website.
+
+8. `<main>`: The `<main>` element wraps the main content of the page. It should be used only once in the document structure.
+
+9. `<section>`: The `<section>` element is used to group and separate content into thematic or related sections. Each section should have an `<h2>` or higher heading to indicate its title.
+
+10. `<footer>`: The `<footer>` element is used to group the content of the footer. It can include contact information, additional links, and copyright.
+
+**Best Practices :**
+
+- Using appropriate HTML elements instead of generic elements (like `<div>`) provides a clear semantic structure that helps search engines understand and categorize the content.
+
+- Heading elements (`<h1>` to `<h6>`) indicate the hierarchy and structure of the content. Search engines use this to determine the importance of headings, and users with visual impairments can easily navigate through them.
+
+- Using elements like `<nav>`, `<header>`, `<section>`, `<footer>`, among others, provides a clearer and more understandable structure for users and facilitates navigation for users with disabilities.
+
+- Providing alternative text for images using the `alt` attribute of `<img>` improves accessibility for visually impaired people
+and allows search engines to understand the content of the images.
+
+- Proper use of semantic tags makes it easier for developers to understand and maintain the code, which in turn improves code scalability and readability.
+
+## Accessibility 
+
+Accessibility refers to making websites usable for all people, including those with disabilities. Remember that accessibility is an ongoing process and it is important to consider the needs of all users when designing and developing a Web site.
+
+1. Alternative Text for Images: Provide an alternative description for images using the `alt` attribute in the `<img>` tag. This allows visually impaired individuals to understand the content of images through screen readers. Example:
+
+```
+<img src="image.jpg" alt="A dog playing in the park">
+```
+
+2. Form Labels: Associate descriptive labels with input fields in a form. This helps visually impaired or cognitive impaired individuals understand what information to input. Example:
+
+```
+<label for="name">Name:</label>
+<input type="text" id="name" name="name">
+```
+
+3. Color Contrast: Ensure there is sufficient contrast between text and background so that visually impaired individuals can read the content easily. Use color contrast tools or checkers to ensure compliance with accessibility guidelines. Example:
+
+```
+<p style="color: #000000; background-color: #FFFFFF;">This is an example of text with adequate contrast.</p>
+```
+
+4. Descriptive Links: Use descriptive text in links instead of simply saying "click here." This helps visually impaired individuals understand where the link is directing them. Example:
+
+```
+<a href="https://www.example.com">Visit our website</a>
+```
+
+5. Keyboard Accessibility: Ensure that all interactions and functions of your website can be accessed and used through the keyboard. This is important for individuals with motor disabilities who cannot use a mouse. Example:
+
+```
+<button type="button" onclick="myFunction()" onkeypress="myFunction()">Click here</button>
+```
+
+<!-- SEO | DOM -->
+## SEO
+
+SEO (Search Engine Optimization) refers to the set of practices and techniques used to improve the visibility and ranking of a website on search engines such as Google, Bing, and Yahoo. The goal of SEO is to increase the quantity and quality of organic (non-paid) traffic that a website receives.
+
+SEO is based on how search engines function and how they analyze and rank websites. Search engines use algorithms to determine which websites are relevant and most useful for a specific search query. By optimizing a website for SEO, the aim is to meet the criteria that search engines consider important for ranking and displaying results.
+
+There are different aspects of SEO that can be addressed to enhance a website's visibility:
+
+1. On-page optimization: This involves optimizing elements within the website, such as content, meta tags, headings, URLs, and site structure. It entails strategic use of relevant keywords and ensuring that the content is high-quality and well-organized.
+
+2. Off-page optimization: This focuses on external factors that influence a website's ranking, such as link building (obtaining high-quality backlinks from other websites) and social media presence.
+
+3. User experience: An increasingly important factor in SEO is the user experience offered by a website. This includes aspects such as page loading speed, mobile-friendliness, intuitive navigation, and user-friendly design.
+
+4. Keyword research: It is crucial to understand the keywords and phrases used by the target audience when searching for related information. This helps to guide content creation and optimization to make it relevant to search queries.
+
+5. Tracking and analysis: It is essential to monitor the website's performance, use analytical tools like Google Analytics, and make continuous adjustments and improvements based on the data obtained.
+
+The use of SEO is important because:
+
+1. It increases visibility and online presence: Improved search engine ranking helps more people find and visit the website.
+
+2. It generates high-quality organic traffic: By optimizing the website for relevant keywords, it attracts people who have a genuine interest in the products, services, or content offered.
+
+3. It enhances credibility and trust: Users tend to trust websites that appear in the top search results, which can increase brand credibility.
+
+4. It provides a higher return on investment: Organic traffic obtained through SEO does not require direct advertising payments, potentially resulting in a higher return on investment in the long run.
+
+5. It improves the user experience: By optimizing factors like page loading speed and usability, a better user experience is offered, which can increase visitor satisfaction and loyalty.
+
+## DOM
+
+The DOM (Document Object Model) is a structured and hierarchical representation of an HTML, XML, or XHTML document. It is an interface that allows programs to dynamically access and manipulate the elements, attributes, and content of a document. The DOM organizes the document into a tree of nodes, where each node represents an element, attribute, or text of the document.
+
+The DOM is important because it enables web developers to interact with the content of a page dynamically. By using the DOM, it is possible to programmatically modify, add, or remove elements and attributes from the document, making it easier to create interactive and dynamic web applications.
+
+The DOM provides a set of methods and properties that allow developers to efficiently access and manipulate the elements of the document. Some common operations that can be performed with the DOM include modifying the content of an element, manipulating CSS classes, managing events, and creating new elements.
+
+<!--CSS general knowledge | Specificity | Box Model-->
+## CSS 
+
+CSS (Cascading Style Sheets) is a style sheet language used to describe the presentation and appearance of a document written in HTML or XML. It controls the layout, style, and formatting of web pages, providing a way to separate content from visual presentation. CSS operates on the principle of cascading, where multiple styles can be applied to an element, with the final result determined by specificity and order.
+
+CSS consists of selectors, properties, and values. Selectors target specific elements in an HTML document, properties define visual aspects, and values specify desired settings. CSS can be applied inline, internally within the HTML document, or externally as separate CSS files. Selectors include element, class, ID, attribute, pseudo-class, and pseudo-element, enabling precise targeting of elements or groups.
+
+CSS offers various properties to control visuals like color, font, size, margin, padding, background, and more. These properties can be combined for unique styles and layouts. CSS3 introduced features such as animations, transitions, responsive design, Flexbox, and CSS Grid.
+
+CSS frameworks like Bootstrap, Foundation, and Bulma provide pre-designed styles and components for efficient creation of responsive and visually appealing websites. Preprocessors like Sass and Less extend CSS with variables, functions, nesting, and more, requiring compilation into CSS before use.
+
+CSS plays a vital role in web development, enhancing the aesthetics, user experience, and consistency across web pages. Understanding CSS allows developers to customize designs, create engaging layouts, and adapt to different screen sizes. It is an essential skill for front-end developers and crucial for building modern, visually appealing, and responsive websites.
+
+## Specificity
+
+Specificity in CSS refers to how conflicts are resolved when multiple styles are applied to the same element. It is an important concept to understand how the final style of an element is determined when there are overlapping style rules.
+
+Specificity is based on a scoring system that assigns values to selectors used in the style rules. Each selector has a specificity value, and when there are multiple styles applied to an element, specificity is used to determine which one will take precedence.
+
+The specificity scoring system consists of four parts:
+
+1. Inline specificity: Inline styles have the highest specificity. They are applied directly to an element using the "style" attribute.
+
+2. ID specificity: ID selectors have a high specificity value. They are represented by the "#" symbol followed by the ID name.
+
+3. Class, attribute, and pseudoclass specificity: Class, attribute, and pseudoclass selectors have a medium specificity value. They are represented by the class, attribute, or pseudoclass name preceded by a dot (.) or square brackets ([]).
+
+4. Element and pseudoelement specificity: Element and pseudoelement selectors have the lowest specificity. They are represented by the element name or pseudoelement name.
+
+When conflicts occur, the principle is followed that the style with the highest specificity will take precedence over styles with lower specificity. In case of a tie, the style that appears later in the code will be applied.
+
+It is important to understand and properly use specificity in CSS to avoid conflicts and ensure styles are applied as intended. By understanding how specificity is calculated, one can write style rules more precisely and predictably, avoiding unexpected surprises in the appearance of a website.
+
+## Box Model
+
+The Box Model is a fundamental concept in CSS that defines how elements are rendered and structured on a web page. It consists of four layers or components that make up the total space occupied by an element: content, padding, border, and margin.
+
+1. Content: It represents the actual content of an element, such as text, images, or other media. The content area is determined by the width and height properties set for the element.
+
+2. Padding: It is the space between the content and the border of an element. Padding can be added to all four sides of an element using the padding property. It helps create space around the content, improving readability and visual separation.
+
+3. Border: It is a line that surrounds the padding and content of an element. The border can be customized in terms of color, style, and thickness using the border property. Borders provide visual boundaries and help distinguish one element from another.
+
+4. Margin: It is the space between the border of an element and other elements around it. Margins create spacing between elements and can be set using the margin property. They are used to control the layout and positioning of elements on a page.
+
+The Box Model allows for precise control over the size, spacing, and positioning of elements on a web page. By adjusting the values of content, padding, border, and margin, designers can create visually appealing and well-structured layouts.
+
+Understanding the Box Model is crucial for properly positioning and aligning elements, ensuring consistent spacing, and creating responsive designs. It is important to consider the total space occupied by an element, including its content, padding, border, and margin, when planning the layout of a web page.
+
+<!--Hoisting | Scope | strict-->
+## Hoisting
+
+Hoisting is a behavior in JavaScript where variable and function declarations are moved to the top of their containing scope during the compilation phase. This means that regardless of where variables and functions are declared in the code, they are conceptually moved to the top of their scope and can be accessed before they are actually defined.
+
+Hoisting applies to both variable declarations (using the var keyword) and function declarations. However, it's important to note that only the declarations are hoisted, not the initializations or assignments.
+
+For example, consider the following code:
+
+```
+console.log(x); // Output: undefined
+var x = 10;
+```
+
+In this case, even though the variable `x` is accessed before it is declared and initialized, it doesn't result in an error. This is because during hoisting, the variable declaration `var x` is moved to the top, making it available throughout the scope. However, at the point of the `console.log` statement, the variable `x` has not been assigned a value, so its value is `undefined`.
+
+Similarly, function declarations are also hoisted. For example:
+
+```
+foo(); // Output: "Hello, hoisting!"
+
+function foo() {
+  console.log("Hello, hoisting!");
+}
+```
+
+In this case, the function `foo` is declared after it is called, but hoisting moves the function declaration to the top, allowing it to be invoked before its actual declaration.
+
+However, it's important to note that hoisting does not apply to variable assignments or function expressions. Only declarations are hoisted, not the initializations or assignments. So, it's good practice to declare variables at the top of their scope to avoid any confusion and make the code more readable.
+
+## Scope
+
+Scope in JavaScript and CSS refers to the visibility and accessibility of variables, functions, and styles in different parts of the code.
+
+In JavaScript, scope is divided into global scope and local scope.
+
+- Global scope encompasses the entire program, and variables and functions declared outside any function have global scope. These variables and functions are accessible from anywhere in the code.
+
+- Local scope in JavaScript refers to variables and functions that are only visible within a specific code block, such as a function. These variables and functions have a limited scope and are only available within their local scope. This helps avoid name collisions and maintain better control over variables used in a specific context.
+
+In CSS, scope is simpler and is based on the structure of the HTML document. CSS styles are applied to HTML elements following a descendant approach, where styles are inherited from parent elements to child elements.
+
+- Scope in CSS is determined by the structure of the HTML document. Styles defined for an element apply to that element and all its descendants unless overridden by more specific styles.
+
+- CSS also uses selectors to specify which elements will be affected by a particular style. Selectors can target specific elements such as classes, IDs, tags, or attributes, and styles will be applied only to those selected elements.
+
+## Strict
+
+The strict mode, also known as "use strict", is a feature in JavaScript introduced in ECMAScript 5 (ES5) that allows for writing safer code, eliminates ambiguous behaviors, and avoids certain common errors. By enabling strict mode, the JavaScript interpreter performs stricter interpretation of the code, applying stricter rules and generating errors in situations that were previously overlooked.
+
+To enable strict mode, you need to add the following statement at the beginning of the JavaScript file or at the beginning of a function:
+
+```
+"use strict";
+```
+
+If you place this statement at the beginning of the file, it will apply to the entire file. If you place it at the beginning of a function, it will only apply to the scope of that function.
+
+Strict mode introduces several features and behaviors:
+
+1. Prevents the use of undeclared variables: In strict mode, all variables must be declared before they are used. Otherwise, an error will be generated.
+
+2. Disallows the reassignment of read-only variables: In strict mode, it is not allowed to reassign values to variables that have been declared as constants or are part of read-only objects (e.g., properties of built-in objects like `Math` or `console`).
+
+3. Prohibits the use of invalid octals: In strict mode, octal literals that start with a zero followed by digits (e.g., `0123`) are not valid and will generate an error.
+
+4. Does not allow variable and function deletion: In strict mode, it is not allowed to delete variables and functions using the `delete` operator. This prevents potential issues and errors in the code.
+
+5. Enforces the use of unique parameters in functions: In strict mode, it is not allowed to have multiple parameters with the same name in a function.
+
+6. Prohibits the use of reserved words as variable names: In strict mode, using JavaScript reserved words (such as `eval`, `arguments`, or `implements`) as variable names or function arguments is not allowed.
+
+Keep in mind that if you're using JavaScript modules (for example, in a Node.js environment or with ES6 modules), strict mode is automatically enabled in each module without needing to add the "use strict" declaration.
+
+<!--Media Queries | em, rem, px-->
+## Media Queries
+
+Media Queries are used in CSS to apply specific styles based on the characteristics of the device or medium in which a web page is being viewed. This allows for the creation of responsive and adaptive designs that adjust to different screen sizes and devices.
+
+Media Queries are primarily used when you want to apply different styles or layouts depending on device conditions such as screen width, orientation (landscape or portrait), pixel density, color capabilities, and more.
+
+To use Media Queries, you use the `@media` rule in CSS, followed by a condition that determines when the styles will be applied. This condition is based on device characteristics and is defined using logical operators and unit values.
+
+There are different units of measurement that can be used in Media Queries, such as em, rem, and px:
+
+- **em**: The em unit is relative to the font size of the parent element. For example, `@media (min-width: 30em)` will apply the styles when the screen width is equal to or greater than 30 times the font size of the parent element.
+
+- **rem**: The rem unit is similar to em but is based on the font size of the root element (typically the `<html>` element). For example, `@media (max-width: 40rem)` will apply the styles when the screen width is equal to or less than 40 times the font size of the root element.
+
+- **px**: The px unit represents pixels and is an absolute unit. For example, `@media (min-width: 768px)` will apply the styles when the screen width is equal to or greater than 768 pixels.
+
+Media Queries using different units of measurement:
+
+```
+/* Media Query using em */
+@media (max-width: 30em) {
+  /* Styles for screens with a width equal to or less than 30 times the font size of the parent element */
+}
+
+/* Media Query using rem */
+@media (min-width: 40rem) {
+  /* Styles for screens with a width equal to or greater than 40 times the font size of the root element */
+}
+
+/* Media Query using px */
+@media (max-width: 768px) {
+  /* Styles for screens with a width equal to or less than 768 pixels */
+}
+```
+
+Remember that you can combine multiple conditions using logical operators like `and` and `or`, and you can also apply different styles for different device characteristics within a single Media Query.
+
+```
+@media (max-width: 600px) and (orientation: landscape) {
+  /* Styles for screens with a maximum width of 600 pixels and landscape orientation */
+  body {
+    background-color: lightblue;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Styles for screens with a width between 768 and 1024 pixels */
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  /* Styles for screens with a minimum width of 1200 pixels */
+  .container {
+    width: 1000px;
+    margin: 0 auto;
+  }
+}
+```
+
+In the first Media Query, the styles will be applied when the screen has a maximum width of 600 pixels and is in landscape orientation. The background color of the body element will be set to light blue.
+
+In the second Media Query, the styles will be applied when the screen width is between 768 and 1024 pixels. The container element will have a width of 80% and be horizontally centered using margin.
+
+In the third Media Query, the styles will be applied when the screen has a minimum width of 1200 pixels. The container element will have a fixed width of 1000 pixels and be horizontally centered using margin.
+
+The choice of using units of measurement like em, rem, and px in Media Queries depends on the design requirements and desired user experience. em and rem units provide more flexibility and adaptability to fluid designs and variable font sizes, while the px unit allows for precise breakpoints based on exact pixel values.
+
+It's important to consider browser and device compatibility when using Media Queries, as some features may not be supported by older browser versions. Additionally, it is recommended to adopt a responsive design approach from the start of a project to ensure an optimal experience across different devices.
+
 <!--Bibliography-->
 
 ## Bibliography
@@ -520,3 +878,14 @@ Data attributes allow you to store additional information in HTML elements in a 
 * [Scrum](https://www.atlassian.com/agile/scrum)
 * [HTML](https://developer.mozilla.org/es/docs/Web/HTML)
 * [Data-attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)
+* [Semantic HTML](https://developer.mozilla.org/en-US/docs/Glossary/Semantics)
+* [Accessibility](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML)
+* [SEO](https://developer.mozilla.org/es/docs/Glossary/SEO)
+* [DOM](https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model)
+* [CSS](https://developer.mozilla.org/es/docs/Web/CSS)
+* [Specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)
+* [Box Model](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model)
+* [Hoisting](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting)
+* [Scope](https://developer.mozilla.org/en-US/docs/Glossary/Scope) (https://developer.mozilla.org/en-US/docs/Web/CSS/:scope)
+* [Strict](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
+* [Media Queries](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Media_queries)
