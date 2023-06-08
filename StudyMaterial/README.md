@@ -19,7 +19,7 @@
 15. [Difference between HTML and XHTML](#difference-between-html-and-xhtml)
 16. [Data-attributes](#data-attributes)
 17. [Semantic HTML](#semantic-html)
-18. [Accessibility](#ccessibility)
+18. [Accessibility](#accessibility)
 19. [SEO](#seo)
 20. [DOM](#dom)
 21. [CSS](#css)
