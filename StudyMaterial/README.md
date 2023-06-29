@@ -35,9 +35,9 @@
 31. [OOCSS | BEM | SMACSS](#oocss-bem-smacss)
 32. [What are css preprocessors | SASS](#what-are-css-preprocessors-sass)
 33. [Fetch API | Ajax (XHR)](#fetch-api-ajax(XHR))
-34.
-35.
-36.
+34. [HTTP Methods | Response Codes | Session Management](#http-methods-response-codes-session-management)
+35. [HTTP 2.0 | 3.0](#HTTP-2.0-3.0)
+36. [Cookies, Local Storage & Session Storage](#cookies-local-storage-&-session-storage)
 37.
 38.
 39.
@@ -1107,6 +1107,105 @@ Ajax stands for Asynchronous JavaScript and XML. It is a technique that allows y
 - Wide compatibility: Ajax is compatible with a wide range of browsers, including older ones, making it a viable option for applications that require broader support.
 
 Both the Fetch API and Ajax (XHR) are techniques used to make asynchronous requests in web applications. The Fetch API is more modern, easier to use, and based on promises, while Ajax uses the XMLHttpRequest object and has a slightly more complex syntax. 
+
+## Methods | Response Codes | Session Management
+
+HTTP, or Hypertext Transfer Protocol, is the baseline for communication on the World Wide Web. It is a set of rules that allows web browsers (such as Chrome or Firefox) and web servers (which host websites) to communicate with each other.
+
+HTTP is a language that browsers and servers use to understand each other. When you type a website's URL into your browser and hit Enter, the browser sends an HTTP request to the server asking for the website's information. The server then responds with an HTTP response containing the requested information. This back-and-forth communication happens behind the scenes and enables you to view websites, submit forms, download files, and perform various online activities.
+
+HTTP Methods:
+HTTP methods define the actions that can be performed on a resource. Here's a detailed explanation of the most common methods:
+
+1. GET: Used to request and retrieve information of a specific resource. The server responds by providing the representation of the requested resource.
+2. POST: Used to send data to the server for processing. It's commonly used for submitting forms or sending data that will create a new resource on the server.
+3. PUT: Used to completely update an existing resource. The client sends a complete representation of the resource to be updated.
+4. DELETE: Used to delete a specific resource on the server.
+5. PATCH: Used to perform a partial update of a resource. The client sends only the modifications to be made to the resource.
+6. HEAD: Used to retrieve only the response headers of a resource without fetching its content.
+7. OPTIONS: Used to obtain information about the server's capabilities, such as the supported HTTP methods by a particular resource.
+8. TRACE: Used for diagnostic purposes. The server echoes back in the response exactly what it received in the request, allowing the client to see what modifications or additions were made along the way.
+9. CONNECT: Used to establish a network connection with a remote server through a proxy.
+
+HTTP Response Codes:
+When a server receives an HTTP request, it returns a response code to indicate the status of the request. Here's a detailed explanation of some common response codes:
+
+1. 200 OK: The request has been successfully processed, and the server returns the requested resource.
+2. 201 Created: The request has been successfully completed, and a new resource has been created.
+3. 204 No Content: The request has been successfully processed, but there is no content to return in the response.
+4. 400 Bad Request: The request cannot be processed due to incorrect syntax or a client-side error.
+5. 401 Unauthorized: Authentication is required to access the requested resource.
+6. 403 Forbidden: The client does not have permission to access the requested resource.
+7. 404 Not Found: The requested resource could not be found on the server.
+8. 500 Internal Server Error: A generic server error has occurred, indicating an issue on the server side.
+
+Session Management:
+HTTP itself is stateless, meaning it doesn't maintain information about previous requests or user sessions. However, session management techniques are used to create and manage stateful interactions. Here are some common session management techniques:
+
+1. Cookies: The server sends a small piece of data (cookie) to the client, which the client includes in subsequent requests to identify itself.
+2. URL Rewriting: Session IDs are appended to URLs, allowing the server to associate requests with specific sessions.
+3. Hidden Form Fields: Session IDs are stored in HTML forms as hidden fields and submitted along with the form data.
+4. Session Tokens: Unique tokens are generated and issued to clients, which are then included in subsequent requests to establish and maintain sessions.
+5. JSON Web Tokens (JWT): A token-based authentication mechanism that securely stores session information in a JSON format.
+
+Session management techniques help track user sessions, maintain user-specific data, and enable personalized experiences on the web.
+
+It's important to note that the security aspects of session management, such as preventing session hijacking or ensuring the confidentiality of session data, require additional considerations and practices to protect against potential vulnerabilities.
+
+## HTTP 2.0 | 3.0
+
+HTTP/2 (HTTP 2.0):
+HTTP/2 is the upgraded version of the Hypertext Transfer Protocol, designed to improve performance and efficiency compared to its predecessor, HTTP/1.1.
+
+1. Multiplexing: Multiplexing in HTTP/2 allows multiple requests and responses to be sent over a single TCP connection. In HTTP/1.1, each resource required a separate connection, leading to inefficiency and resource blocking. With multiplexing, multiple requests and responses can be sent in parallel over the same TCP connection, improving page load speed.
+
+2. Header Compression: Headers in HTTP/2 are compressed to reduce their size before being sent to the server. This reduces bandwidth overhead and speeds up data transfer, especially on slow network connections.
+
+3. Stream Prioritization: HTTP/2 allows prioritization of data streams, meaning that importance levels can be set for requests. This ensures that critical resources are downloaded first, enhancing the user experience when loading web pages.
+
+4. Server Push: The server push functionality in HTTP/2 allows the server to send additional resources to the client without them explicitly requesting them. This is based on the server's anticipation that the client will need those resources. Server push can improve load speed by reducing the number of required requests.
+
+HTTP/3 (HTTP 3.0):
+HTTP/3 is the latest version of the Hypertext Transfer Protocol and is based on the QUIC (Quick UDP Internet Connections) protocol. It introduces additional improvements compared to HTTP/2.
+
+1. UDP-Based Transport: HTTP/3 uses the QUIC protocol, which is based on UDP instead of TCP. UDP is a lighter and faster transport protocol than TCP. By utilizing UDP, HTTP/3 improves latency and data transfer speed.
+
+2. Integrated Multiplexing and Encryption: HTTP/3 incorporates multiplexing and encryption directly into the protocol, unlike HTTP/2 which uses an additional layer called Transport Layer Security (TLS) for encryption. The integration of multiplexing and encryption in HTTP/3 simplifies and speeds up web communications.
+
+3. Improved Error Recovery: HTTP/3 implements a more efficient error recovery mechanism. It employs techniques such as fast retransmit and packet loss handling to ensure reliable data transfer even in unstable networks or with packet loss.
+
+HTTP/2 and HTTP/3 are enhanced versions of the Hypertext Transfer Protocol. HTTP/2 focuses on improving TCP connection efficiency, while HTTP/3 leverages the UDP-based QUIC protocol to achieve higher speed, performance, and security in web communications.
+
+## Cookies, Local Storage & Session Storage
+
+1. Cookies:
+Cookies are small pieces of data that websites store on a user's device. They are typically used for session management, personalization, and tracking. Key points about cookies:
+
+- Size and Expiration: Cookies can store a limited amount of data, usually up to 4KB. They have an expiration date, which can be set by the server. Cookies can be persistent, remaining on the user's device even after the browser is closed, or session-based, expiring when the browser session ends.
+- Client-Server Communication: Cookies are sent back and forth between the client (browser) and the server with each request and response. This allows the server to recognize and identify the user across multiple requests.
+- Accessibility: Cookies can be accessed and modified both by client-side JavaScript and server-side code. This makes them useful for maintaining user sessions, remembering user preferences, and tracking user behavior.
+
+It's important to note that cookies have some limitations. They are vulnerable to security risks, such as cross-site scripting (XSS) and cross-site request forgery (CSRF) attacks. Additionally, the limited storage size can be a constraint for storing large amounts of data.
+
+2. Local Storage:
+Local Storage is a web browser feature that allows websites to store larger amounts of data on the client's device. Main characteristics of Local Storage:
+
+- Storage Capacity: Local Storage provides a significantly larger storage capacity compared to cookies. Typically, websites can store up to 5MB or more of data.
+- Persistence: Unlike session-based cookies, Local Storage data remains on the user's device even after closing the browser. It is persistent and can be accessed across browser sessions.
+- Scope: Local Storage is specific to each domain and is isolated from other websites. Data stored in Local Storage for one website cannot be accessed by another website.
+
+Local Storage is primarily used for client-side data storage, such as caching user preferences, offline data, or temporary data that doesn't need to be transmitted to the server with each request.
+
+3. Session Storage:
+Session Storage is similar to Local Storage in terms of capabilities but has a different scope and lifespan. What I need to know about Session Storage?:
+
+- Storage Capacity and Persistence: Session Storage provides a storage capacity similar to Local Storage (around 5MB or more), but it is temporary. The data stored in Session Storage is tied to a specific browsing session and is cleared when the session ends (e.g., when the browser is closed).
+- Scope: Like Local Storage, Session Storage is isolated to each domain. It cannot be accessed by other websites.
+- Use Cases: Session Storage is commonly used to store temporary session-related data that needs to be accessible across multiple pages within a browsing session.
+
+Session Storage is useful for maintaining stateful data within a user's browsing session, such as storing form data before submission or preserving user interactions within a website.
+
+Cookies, Local Storage, and Session Storage are different mechanisms for storing data on the client-side. Cookies are primarily used for session management and tracking, with limited storage capacity. Local Storage offers a larger storage capacity and persistent storage, while Session Storage provides temporary storage for a browsing session. The choice between these storage options depends on the specific requirements and use cases of a web application.
 
 <!--Bibliography-->
 
