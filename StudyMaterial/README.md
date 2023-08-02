@@ -29,20 +29,35 @@
 25. [Scope](#scope)
 26. [Strict](#strict)
 27. [Media Queries](#media-queries)
-28. [Layouts how to make them and positioning in css](#layouts-how-to-make-them-and-positioning-in-css)
-29. [Flexbox layout & Grid Layout](#flexbox-layout-&-grid-layout)
+28. [Layouts: How to Make Them and Positioning in CSS](#layouts-how-to-make-them-and-positioning-in-css)
+29. [Flexbox Layout & Grid Layout](#flexbox-layout--grid-layout)
 30. [Bootstrap and Materialize CSS](#bootstrap-and-materialize-css)
-31. [OOCSS | BEM | SMACSS](#oocss-bem-smacss)
-32. [What are css preprocessors | SASS](#what-are-css-preprocessors-sass)
-33. [Fetch API | Ajax (XHR)](#fetch-api-ajax(XHR))
-34. [HTTP Methods | Response Codes | Session Management](#http-methods-response-codes-session-management)
-35. [HTTP 2.0 | 3.0](#HTTP-2.0-3.0)
-36. [Cookies, Local Storage & Session Storage](#cookies-local-storage-&-session-storage)
-37.
-38.
-39.
-40.
-41. [Bibliography](#bibliography)
+31. [OOCSS | BEM | SMACSS](#oocss--bem--smacss)
+32. [What are CSS Preprocessors | SASS](#what-are-css-preprocessors--sass)
+33. [Fetch API | Ajax (XHR)](#fetch-api--ajax-xhr)
+34. [HTTP Methods | Response Codes | Session Management](#http-methods--response-codes--session-management)
+35. [HTTP 2.0 | 3.0](#http-20--30)
+36. [Cookies, Local Storage & Session Storage](#cookies-local-storage--session-storage)
+37. [CORS | JSONP](#cors--jsonp)
+38. [JSON Web Token](#json-web-token)
+39. [SSO | OAuth 2.0](#sso--oauth-20)
+40. [Events | Event Bubbling](#events--event-bubbling)
+41. [SOLID Principles](#solid-principles)
+42. [OOP Concept](#oop-concept)
+43. [Class | Inheritance | Prototype | Prototype Inheritance](#class--inheritance--prototype--prototype-inheritance)
+44. [Encapsulation | Polymorphism](#encapsulation--polymorphism)
+45. [Closures](#closures)
+46. [OWASP and Top 10 Guidelines](#owasp-and-top-10-guidelines)
+47. [DoS](#dos)
+48. [XSS](#xss)
+49. [Brute Force](#brute-force)
+50. [Validation](#validation)
+51. [MFA](#mfa)
+52. [Prototype](#prototype)
+53. [Promises](#promises)
+54. [ES6+](#es6)
+55. [Async Await](#async-await)
+56. [Bibliography](#bibliography)
 
 <!--What is git?-->
 
@@ -1108,7 +1123,7 @@ Ajax stands for Asynchronous JavaScript and XML. It is a technique that allows y
 
 Both the Fetch API and Ajax (XHR) are techniques used to make asynchronous requests in web applications. The Fetch API is more modern, easier to use, and based on promises, while Ajax uses the XMLHttpRequest object and has a slightly more complex syntax. 
 
-## Methods | Response Codes | Session Management
+## HTTP Methods | Response Codes | Session Management
 
 HTTP, or Hypertext Transfer Protocol, is the baseline for communication on the World Wide Web. It is a set of rules that allows web browsers (such as Chrome or Firefox) and web servers (which host websites) to communicate with each other.
 
@@ -1207,6 +1222,408 @@ Session Storage is useful for maintaining stateful data within a user's browsing
 
 Cookies, Local Storage, and Session Storage are different mechanisms for storing data on the client-side. Cookies are primarily used for session management and tracking, with limited storage capacity. Local Storage offers a larger storage capacity and persistent storage, while Session Storage provides temporary storage for a browsing session. The choice between these storage options depends on the specific requirements and use cases of a web application.
 
+## CORS | JSONP
+
+CORS is a security feature implemented in web browsers to protect websites from malicious requests and ensure safe data exchange between different web domains (origins). When a web page from one domain (origin) tries to access resources (like data or APIs) hosted on another domain, the browser enforces CORS to check if the other domain allows such access. If the domains are different and CORS is not properly configured on the server, the browser will block the request to protect the user's data and security.
+
+In simple terms, CORS helps in making web applications secure by allowing or blocking cross-origin requests based on the server's configuration.
+
+JSONP is an old way to get data from another website (domain) when the browser doesn't allow normal requests between different domains due to security reasons.
+
+Imagine that you are on a web page hosted on domain "A", and you want to get data from a server on domain "B". This is normally not possible due to browser security measures to protect users.
+
+But with JSONP, you can do it like this:
+
+1. **Special Request:** When you want to get data from "B", you create a special request through a script element in your page's HTML.
+
+2. **Function Name:** In the request, you include the name of a function that you want to be executed when the data is ready.
+
+3. **Server Response:** The server in domain "B" receives your request and sends the data wrapped inside that function you specified.
+
+4. **Auto Execution:** When the data arrives on your page as some kind of "script", the browser executes it automatically, and the function you provided is activated, allowing you to access the data.
+
+It's like asking someone from another place to call you on the phone with the information you need. They call you and tell you what you want to know.
+
+JSONP and CORS are different techniques for allowing web pages to access data on domains (websites) other than the site itself. Both methods allow requests for resources across domain boundaries, but have significant differences in performance and security.
+
+Comparison between JSONP and CORS:
+
+1. **JSONP (JSON with Padding):**
+    - It's an older technique.
+    - Requires the external domain server to wrap the data in a specific function requested by the client page.
+    - Execute the JavaScript code of the response directly on the client page.
+    - It can be less secure, since if the external server does not properly validate the data, it could expose itself to Cross-Site Scripting (XSS) vulnerabilities.
+    - Only supports GET requests.
+    - Does not provide advanced security and configuration controls, which could lead to security issues.
+
+2. **CORS (Cross-Origin Resource Sharing):**
+    - It is a more modern and safe technique.
+    - Allows the external server to explicitly define which domains are allowed to make requests.
+    - Allows more flexible requests (GET, POST, etc.).
+    - Provides advanced security and configuration controls to handle requests more securely.
+    - The browser imposes stricter restrictions on what data can be accessed and how it can be accessed, which improves information security.
+
+In general, CORS is the recommended solution for handling cross-domain requests in modern web development. It provides a more secure and flexible mechanism to allow websites to interact with resources from other domains, while protecting user security and data integrity. JSONP, while useful in the past, has become less common due to its limitations and security concerns. Therefore, CORS is preferable in most cases.
+
+## JSON Web Token.
+
+JWT is like a key card. Just like a physical access card allows you to enter restricted areas in a building or business, a JWT allows you to access protected areas in a web application or online service in a secure manner.
+
+1. **What is a JWT?** A JSON Web Token (JWT) is an object that contains important information about a user or an entity. It is encrypted in a secure and compact format.
+
+2. **How does it work?** When a user logs into an application, the server creates a JWT and delivers it to the user. The user stores this JWT, usually in local storage or in a cookie.
+
+3. **What does the JWT contain?** The JWT contains information in the form of "claims". These claims are like "tags" that describe the user or indicate what they can do. For example, it can contain the user ID or the token expiration time.
+
+4. **Secure access:** When the user wants to access protected areas of the application, he presents his JWT. The server checks the signature of the JWT and the claims to make sure that it is valid and that the user has the necessary permissions.
+
+5. **Expiration Time:** The JWT usually has an expiration time, after which it will become invalid. This ensures that the user cannot use the JWT indefinitely.
+
+6. **Security:** JWTs are secure because they are digitally signed by the server. This ensures that no one can alter the content of the JWT without being detected.
+
+7. **Advantages:** JWTs are very useful in microservice architectures and distributed applications, since they do not require user state storage on the server, which makes them scalable and efficient.
+
+In short, a JSON Web Token (JWT) is a secure mechanism for authenticating and authorizing users in web applications. It works like a key card, providing information and permissions to users to access protected areas of the application. With JWT, the need to store session information on the server is avoided, making it an efficient and secure solution for many applications.
+
+## SSO | OAuth 2.0
+
+Single Sign-On (SSO) is a method that allows users to log in once and access multiple applications without needing to authenticate again.
+
+1. **Single Sign-On (SSO):**
+   - Imagine that SSO is like having a single master key for many doors.
+   - With SSO, you can log in once to a system or website and then access multiple systems or applications without having to re-enter your credentials.
+   - It's like when you sign in to a Google or Facebook account, and then you can access different apps or services without having to sign in again.
+   - SSO improves user convenience and experience by eliminating the need to remember multiple passwords.
+
+OAuth 2.0 is an authorization protocol that allows third-party applications to access authorized resources in user accounts without sharing full credentials. This improves security, convenience and the user experience when using online applications and services in a secure and controlled manner.
+
+2. **OAuth 2.0:**
+   - Now OAuth 2.0 as a secure way to share your master key with others without directly revealing it.
+   - With OAuth 2.0, you can allow third-party applications or services to access certain information or perform actions on your behalf, without sharing your password with them.
+   - It's like giving temporary and controlled access to an app, like allowing an app to post to your social media account without giving you your password.
+   - OAuth 2.0 ensures security and protects your personal credentials by only granting limited access to authorized applications.
+
+## Events | Event bubbling.
+
+In web development, events are actions that happen in a web page (e.g., a button click or mouse movement).
+
+Event Bubbling is a behavior where an event triggered on a child element will "bubble up" and trigger the same event on its parent elements. It continues to propagate up the DOM hierarchy until it reaches the root element. This allows you to handle events at different levels in the DOM tree.
+
+Event Bubbling works like layers or levels in the Document Object Model (DOM). When you click on an element, the event starts at that element and then bubbles up through its parent elements, one layer at a time, until it reaches the top-level ancestor in the DOM hierarchy.
+
+Imagine the DOM as a stack of elements, where each element is like a layer on top of another. When you click on an element, the event first triggers the event listener on that element, which is the top layer. Afterward, the event travels up the stack, triggering the event listeners on each successive layer, one by one, until it reaches the bottom layer (the root element or the browser window).
+
+This bubbling-up behavior allows you to handle events at different levels of the DOM without needing to attach separate event listeners to each individual element. Instead, you can attach event listeners to common ancestor elements and capture events from their descendants as well.
+
+For example, if you have a list of items, and you want to handle clicks on any list item, you can add the event listener to the parent element that contains all the list items. When you click on a specific list item, the event will bubble up from the clicked item to the parent container, triggering the event listener you attached.
+
+This concept of "bubbling up" is why it's called Event Bubbling. It's a fundamental part of how event handling works in the browser's DOM and is essential to understand when developing web applications.
+
+HTML:
+```html
+<div id="outer-container">
+  <div id="middle-container">
+    <div id="inner-container">Click me!</div>
+  </div>
+</div>
+```
+
+JavaScript:
+```javascript
+document.getElementById("inner-container").addEventListener("click", function() {
+  console.log("You clicked on the inner container");
+});
+```
+
+When you click on the text "Click me!", you'll see in the browser console:
+```
+You clicked on the inner container
+```
+
+But if you add event listeners to the "middle-container" and "outer-container" as well:
+
+```javascript
+document.getElementById("middle-container").addEventListener("click", function() {
+  console.log("You clicked on the middle container");
+});
+
+document.getElementById("outer-container").addEventListener("click", function() {
+  console.log("You clicked on the outer container");
+});
+```
+
+Now, when you click on the text "Click me!", you'll see in the browser console:
+
+```
+You clicked on the inner container
+You clicked on the middle container
+You clicked on the outer container
+```
+
+## SOLID Principles
+
+SOLID is an acronym representing five essential design principles for writing maintainable and scalable software. These principles are:
+
+Single Responsibility Principle (SRP): Each class should have only one reason to change.
+Open/Closed Principle (OCP): Classes should be open for extension but closed for modification.
+Liskov Substitution Principle (LSP): Subtypes must be substitutable for their base types.
+Interface Segregation Principle (ISP): Clients should not be forced to depend on interfaces they do not use.
+Dependency Inversion Principle (DIP): High-level modules should not depend on low-level modules. Both should depend on abstractions.
+
+## OOP Concept
+
+Object Oriented Programming (OOP) is a way of writing code in which we organize our program as if it were a set of objects that interact with each other. Think of an object as a "model" or "template" that describes something in real life.
+
+Here are some key OOP concepts:
+
+1. **Class:**
+    - A class is like a template or blueprint for creating objects. It defines the characteristics (attributes) and behaviors (methods) that objects based on that class will have.
+
+2. **Object:**
+    - An object is a specific instance of a class, created from the template.
+    - For example, if you have a class "Dog", an object would be a particular dog with its characteristics and behaviors.
+
+3. **Attributes:**
+    - Attributes are the characteristics or properties of an object.
+    - For example, in the class "Dog", the attributes could be "name", "age" and "breed".
+
+4. **Methods:**
+    - Methods are the actions or behaviors that objects can perform.
+    - For example, in the "Dog" class, the methods could be "bark", "run" and "sleep".
+
+5. **Encapsulation:**
+    - It is the concept of keeping the attributes and methods of a class protected and hidden, avoiding direct access from outside the class.
+    - This is done to maintain data integrity and ensure that only the methods of the class can modify the attributes.
+
+6. **Inheritance:**
+    - Inheritance is a mechanism that allows you to create new classes based on existing classes, inheriting their attributes and methods.
+    - It's like creating a new more specific template based on a general template.
+
+7. **Polymorphism:**
+    - Polymorphism allows different objects to respond to the same method in different ways.
+    - For example, in an "Animal" class, the "move" methods can be implemented differently for different types of animals, such as "dog" and "cat".
+
+In short, Object Oriented Programming (OOP) is an approach that organizes code around objects with specific attributes and behaviors. Classes are like templates for creating objects, and code is structured in a way that is easy to understand and maintain. OOP allows you to create more flexible, reusable, and maintainable programs, making it one of the most popular techniques in software development.
+
+## Class | Inheritance | Prototype | Prototype Inheritance.
+
+1. **Class:**
+    - A class is like a blueprint or template for creating objects.
+    - It is like a model that defines the characteristics and behaviors that the objects created from it will have.
+    - For example, if we have a class "Car", we can create multiple car objects with attributes like "color", "make" and methods like "start" and "stop".
+
+2. **Inheritance:**
+    - Inheritance is like creating a new class based on another existing class (parent).
+    - The new class (child) automatically inherits the attributes and methods of the parent class.
+    - This allows you to reuse code and create more specific classes based on a more general class.
+    - For example, if we have a class "Animal" and another class "Dog", the class "Dog" would inherit the characteristics of the class "Animal", such as "move" and "eat".
+
+3. **Prototype:**
+    - The prototype is like a hidden template that every object in JavaScript has implicitly.
+    - When we create an object in JavaScript, it is based on a prototype that defines its properties and methods.
+    - This allows us to add properties or methods to all objects of a class without directly modifying the class definition.
+
+4. **Prototype Inheritance:**
+    - It is a concept in JavaScript where an object can inherit the properties and methods of another object.
+    - When searching for a property or method on an object, if it is not found, JavaScript will search its prototype and its prototype's prototype until it is found (prototype chain).
+    - This allows you to create JavaScript objects that share characteristics and behaviors of other objects, forming a chain of inheritance.
+
+So a "Class" is a template for creating objects with specific characteristics and behaviors. "Inheritance" allows you to create new classes based on existing classes to reuse code. "Prototype" is a hidden template for every object in JavaScript that defines its properties and methods. "Prototype Inheritance" is a way in JavaScript of allowing objects to inherit characteristics and behaviors from other objects through a prototype chain.
+
+## Encapsulation | Polymorphism.
+
+1. **Encapsulation:**
+    - Encapsulation is like keeping your important things in a locked box.
+    - In programming, it is the concept of protecting the data and behavior of an object within a class.
+    - The attributes (data) and methods (behavior) of the class are hidden and can only be accessed and modified by the methods of the class itself.
+    - This prevents external code from directly accessing the data, ensuring that it is kept in a valid and consistent state.
+
+2. **Polymorphism:**
+    - Polymorphism is like having a switch that can turn on different devices.
+    - In programming, it is the ability of different objects to respond to the same action in different ways.
+    - For example, in an "Animal" class, the "sound" method can be implemented differently for "dog", "cat" and "bird".
+    - The code that uses the objects doesn't need to worry about what kind of animal it is, since it can call the "sound" method on all of them and it will get the appropriate result for each case.
+
+Encapsulation is like protecting data and behavior inside a secure box, preventing unauthorized access from the outside. Polymorphism is like having a switch that can work in different ways depending on the object it's applied to. Both concepts are fundamental in Object Oriented Programming and help to create more organized, secure and flexible code.
+
+## Closures.
+
+A closure is like a bubble that captures and stores special information within a function in JavaScript.
+
+Imagine you have a function that creates a bubble around it. This bubble retains special memories, such as variables or references to other functions, even after the original function has finished executing.
+
+Here are some key points about closures:
+
+1. **Capturing Special Data:** When a function is executed, it can create a closure if there is another function defined inside it.
+
+2. **Saving Data:** The closure retains the local data of the enclosing function, even after the function has finished executing.
+
+3. **Private Access:** The data inside the closure is not directly available from outside the function. This makes them private and protected.
+
+4. **Functions Inside Functions:** If you have a function inside another function, the inner function can access the outer function's closure data.
+
+5. **Practical Use:** Closures are useful for holding state, creating specialized functions, and avoiding name conflicts in JavaScript.
+
+A closure in JavaScript allows the inner function to access and use that data, even after the outer function has finished executing. Closures are powerful tools that make JavaScript flexible and versatile for writing more advanced code.
+
+## OWASP and top 10 guidelines.
+
+**OWASP (Open Web Application Security Project):**
+OWASP is a non-profit organization focused on improving the security of web applications and software. It provides information and resources to help developers and security professionals identify and mitigate vulnerabilities in web applications.
+
+**OWASP Top 10:**
+The OWASP Top 10 is a list that identifies the 10 most critical security vulnerabilities in web applications. These vulnerabilities are widely known and pose significant security risks if not properly addressed. The list is updated periodically to reflect new threats and security trends.
+
+Top 10 guidelines:
+
+1. **Injection:** Occurs when untrusted data is inserted into commands or queries executed in a system, allowing attackers to manipulate or access unauthorized data.
+
+2. **Broken Authentication:** Happens when weaknesses in authentication and access control implementation allow attackers to compromise user accounts.
+
+3. **Sensitive Data Exposure:** Involves storing or transmitting sensitive data, such as passwords or personal information, without adequate protection.
+
+4. **XML External Entity (XXE):** A vulnerability that allows attackers to read files and perform attacks on the server through malicious XML.
+
+5. **Broken Access Control:** Occurs when access controls are not properly implemented, allowing attackers to access unauthorized functions or data.
+
+6. **Security Misconfiguration:** Happens when server, platform, or application configuration is not adequately protected, enabling attackers to find valuable information to compromise the system.
+
+7. **Cross-Site Scripting (XSS):** Refers to the inclusion of malicious scripts in web pages, allowing attackers to steal data or take control of a user's browser.
+
+8. **Insecure Deserialization:** A vulnerability that allows attackers to manipulate data during deserialization, potentially leading to unauthorized code execution.
+
+9. **Insufficient Logging & Monitoring:** Occurs when an application fails to log important events or does not monitor malicious activity, making it difficult to detect and respond to attacks.
+
+10. **Insecure Direct Object References:** Happens when resource identifiers, such as URLs or keys, are not properly validated, enabling unauthorized access to data or functions.
+
+OWASP and the Top 10 guidelines are valuable resources for identifying and mitigating vulnerabilities in web applications. By following these guidelines, developers can significantly improve the security of their applications and protect users from potential security breaches and attacks.
+
+## DoS
+
+A DoS attack is like blocking the entrance of a store with too many people, preventing legitimate customers from entering and making purchases.
+
+In more technical terms:
+
+1. **What is a DoS Attack?** A DoS attack is a malicious attempt to overload or overwhelm a website or online service by sending a large number of requests from multiple sources.
+
+2. **Attack Objective:** The goal of the attack is to make the website or service inaccessible to legitimate users by exhausting its resources, such as bandwidth, memory, or processing power.
+
+3. **Practical Example:** Imagine a website as a store with a single entrance. If a crowd of people blocks the entrance, no one else can enter, and the business comes to a standstill.
+
+4. **How It Works:** Attackers use multiple compromised computers or devices to continuously send requests to the target website. This overwhelms the servers and prevents them from serving real users.
+
+5. **Potential Damages:** A DoS attack can cause service disruptions, loss of revenue, damage the company's reputation, and impact user experience.
+
+6. **Different from DDoS:** DoS involves an attacker sending requests from a single source, while DDoS (Distributed Denial of Service) involves multiple sources attacking simultaneously.
+
+7. **Prevention and Mitigation:** Website owners need to implement security measures to detect and block such attacks, such as using firewalls, request rate limiting, and DDoS mitigation systems.
+
+A DoS attack is like blocking the entrance of a website with a crowd of requests, preventing legitimate users from accessing the service. It is a type of cyber attack that aims to overwhelm and paralyze a website, which can have serious consequences for the affected business or service.
+
+## XSS
+
+Cross-Site Scripting (XSS) is like a hidden malicious message on a web page that tricks users.
+
+Imagine you visit a seemingly harmless web page. However, behind the scenes, an attacker has inserted malicious code into that page. When you open it, that code runs without you realizing.
+
+Here are the key points about XSS:
+
+1. **Malicious Code:** Attackers insert malicious code, such as JavaScript, into a web page.
+
+2. **Tricking Users:** When a user visits the compromised page, the malicious code executes in their browser.
+
+3. **Unauthorized Access:** The malicious code can steal sensitive information from the user, such as passwords or session cookies.
+
+4. **Types of XSS:** There are several types of XSS, including Stored XSS, Reflected XSS, and DOM-based XSS.
+
+5. **Prevention:** Developers can prevent XSS by using secure coding practices and properly validating input data.
+
+## Brute Force
+
+"Brute Force" is a trial-and-error method used in various situations, especially in the field of security and computing.
+
+Imagine you have a combination lock with numbers to open it. If you don't know the combination, you could try all possible combinations, one by one, until you find the correct one.
+
+Here are the key points about Brute Force:
+
+1. **Exhaustive Testing:** Brute Force is an exhaustive testing method where all possible options are tried one after another, without using any privileged information or shortcuts.
+
+2. **Time and Resources:** Brute Force can be effective, but it can take a lot of time and resources, especially if the number of possibilities is large.
+
+3. **Security:** It's a common technique used by attackers to discover passwords, codes, or keys in systems that lack sufficient security measures.
+
+4. **Mitigation:** To prevent Brute Force attacks, strong passwords and systems that limit the number of failed attempts are used to block repetitive tries.
+
+5. **Applications:** Besides security, Brute Force is also used in mathematics and problem-solving to find solutions without using a specific algorithm.
+
+## Validation
+
+Validation in programming is like a "filter" that checks whether data meets certain rules before being used or processed by a program.
+
+If you have a form on a web page where users enter their information, such as name, email, and password. Validation is responsible for checking that the entered information is correct and meets certain criteria before saving it to a database or using it to perform some action.
+
+Here are some key points about validation:
+
+1. **Data Checking:** Validation ensures that the entered data is of the correct type and within a valid range. For example, an age field should be a positive integer.
+
+2. **Correct Format:** Validation verifies whether the data has the appropriate format. For example, an email field should have a structure like "name@example.com."
+
+3. **Proper Length:** Validation checks that fields do not exceed a maximum length and are not left empty. For example, a password field should have at least 6 characters and not be too long.
+
+4. **Error Messages:** When data does not pass validation, an error message is displayed to inform the user about what needs to be corrected.
+
+5. **Security:** Validation is also essential for ensuring application security. For example, in a login form, validation can prevent malicious code injection attacks.
+
+This ensures that the entered information is correct and reliable, avoiding errors and issues in the program's functionality. Validation is a fundamental practice for creating robust and secure applications.
+
+## MFA
+
+MFA is an authentication method that requires users to provide two or more different forms of identification before granting access to a system or application. This adds an extra layer of security beyond traditional single-factor authentication (typically a password).
+
+Technical aspects of MFA include:
+
+1. **Factors of Authentication:**
+   - MFA relies on multiple factors to authenticate users:
+     - Knowledge Factor: Something the user knows (e.g., password, PIN).
+     - Possession Factor: Something the user possesses (e.g., mobile device, smart card).
+     - Inherence Factor: Something inherent to the user (e.g., fingerprint, facial recognition).
+
+2. **Challenge-Response Mechanism:**
+   - When a user attempts to log in, the system initiates a challenge, requesting specific authentication factors.
+   - The user responds with the required factors to complete the authentication process.
+
+3. **Token-Based Authentication:**
+   - MFA often uses tokens to generate one-time passcodes (OTPs) as a possession factor.
+   - These tokens can be hardware-based (e.g., RSA SecurID token) or software-based (e.g., Google Authenticator).
+
+4. **Out-of-Band Authentication:**
+   - MFA may use out-of-band communication methods to deliver authentication challenges.
+   - For example, sending a verification code to the user's mobile device via SMS or a mobile app.
+
+5. **Time-Based or Event-Based Tokens:**
+   - Tokens used in MFA can be time-based (changing every certain time interval) or event-based (changing with each new request).
+
+6. **Adaptive Authentication:**
+   - Adaptive MFA adjusts the level of authentication based on risk factors, user behavior, or context.
+   - For high-risk actions, stronger authentication factors may be required.
+
+7. **Token Enrollment and Management:**
+   - Administrators handle token enrollment, provisioning, and revocation to manage MFA for users.
+
+8. **Integration with Identity Providers:**
+   - MFA is often integrated with identity providers and Single Sign-On (SSO) solutions to enable seamless user experiences.
+
+Multi-Factor Authentication (MFA) is a robust security measure that involves using multiple factors of authentication to verify a user's identity. By combining different authentication methods, MFA significantly enhances the security of systems and applications, making it more challenging for unauthorized users to gain access.
+
+## Prototype
+
+## Promises
+
+## ES6+
+
+## Async Await
+
+
 <!--Bibliography-->
 
 ## Bibliography
@@ -1231,3 +1648,28 @@ Cookies, Local Storage, and Session Storage are different mechanisms for storing
 * [Scope](https://developer.mozilla.org/en-US/docs/Glossary/Scope) (https://developer.mozilla.org/en-US/docs/Web/CSS/:scope)
 * [Strict](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
 * [Media Queries](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Media_queries)
+* [Media Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries)
+* [Layouts: How to Make Them and Positioning in CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout)
+* [Flexbox Layout](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox) & [Grid Layout](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grid)
+* [Bootstrap](https://getbootstrap.com/docs) and [Materialize CSS](https://materializecss.com)
+* [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) | [Ajax (XHR)](https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX)
+* [HTTP Methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) | [Response Codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) | [Session Management](https://developer.mozilla.org/en-US/docs/Web/HTTP/Session)
+* [HTTP/2](https://developer.mozilla.org/en-US/docs/Glossary/HTTP_2) | [HTTP/3](https://developer.mozilla.org/en-US/docs/Glossary/HTTP_3)
+* [Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies), [Local Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) & [Session Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage)
+* [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) | [JSONP](https://developer.mozilla.org/en-US/docs/Glossary/JSONP)
+* [JSON Web Token](https://developer.mozilla.org/en-US/docs/Glossary/JSON_Web_Token)
+* [Events](https://developer.mozilla.org/en-US/docs/Web/API/Event) | [Event Bubbling](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#event_bubbling_and_capture)
+* [SOLID Principles](https://developer.mozilla.org/en-US/docs/Glossary/SOLID)
+* [OOP Concept](https://developer.mozilla.org/en-US/docs/Glossary/Object-oriented_programming)
+* [Class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) | [Inheritance](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance) | [Prototype](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype) | [Prototype Inheritance](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
+* [Encapsulation](https://developer.mozilla.org/en-US/docs/Glossary/Encapsulation) | [Polymorphism](https://developer.mozilla.org/en-US/docs/Glossary/Polymorphism)
+* [Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
+* [DoS](https://developer.mozilla.org/en-US/docs/Glossary/Denial_of_Service)
+* [XSS](https://developer.mozilla.org/en-US/docs/Glossary/Cross-Site_Scripting)
+* [Brute Force](https://developer.mozilla.org/en-US/docs/Glossary/Brute_force_attack)
+* [Validation](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation)
+* [MFA](https://developer.mozilla.org/en-US/docs/Glossary/Multi-factor_authentication)
+* [Prototype](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype)
+* [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+* [ES6+](https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript)
+* [Async Await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)
